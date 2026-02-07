@@ -1,17 +1,17 @@
 #include <iostream>
 
-// - Uses a for loop to prompt N times for integers, sum them (store in int total = 0; add each input)
-
-// - After, use a while loop to print the sum repeatedly until it hits 0 (subtract 1 each time—silly but practices while)
-
 // - Bonus (optional for mastery): Wrap in do-while—ask if repeat (y/n), loop whole thing if 'y'
 
 int main() {
 
+    //Declare repeating variable
+    char repeat_input;
+    int repeat;
+
+    do {
     // Decalring variables
     int N;
     int total = 0;
-
     
     // Prompt user to input N
     std::cout << "Input how many times to loop:" << std::endl;
@@ -27,7 +27,7 @@ int main() {
 
         // Add inputs together and print output at end
         total = total + number_inputs[i];
-        if (i==4) {
+        if (i==N-1) {
             std::cout << "Total sum = " << total << std::endl;
         }
     }
@@ -38,6 +38,13 @@ int main() {
         std::cout << total << std::endl;
         total = total - 1;
     }
+
+    // Ask to repeat
+    std::cout << "Do you want to repeat? (y/n):" << std::endl;
+    std::cin >> repeat_input;
+    repeat = (repeat_input == 'y');
+
+    } while (repeat == 1);
 
     return 0;
 }
