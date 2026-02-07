@@ -1,7 +1,5 @@
 #include <iostream>
 
-// - Bonus (optional for mastery): Wrap in do-while—ask if repeat (y/n), loop whole thing if 'y'
-
 int main() {
 
     //Declare repeating variable
