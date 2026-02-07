@@ -18,5 +18,10 @@
   - Note the semicolon at the end
  
 - Tips:  
-  - Break with break; (exit early)
-  - skip with continue;
+  - break;
+    - Exits loop immediately
+  - continue;
+    -skips the rest of the current iteration and goes to the next. Great for input validation or early termination when debugging
+
+- Nested Loops:
+  - Inner loops always finish before outer loops
