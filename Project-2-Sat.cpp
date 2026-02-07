@@ -10,6 +10,7 @@ int main() {
 
     // Decalring variables
     int N;
+    int total = 0;
 
     
     // Prompt user to input N
@@ -23,6 +24,9 @@ int main() {
     for (int i = 0; i < N; i++) {
         std::cout << "Enter a number:" << std::endl;
         std::cin >> number_inputs[i];
+
+        // Add inputs together
+        total = total + number_inputs[i];
     }
 
     return 0;
