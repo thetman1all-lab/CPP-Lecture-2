@@ -20,8 +20,8 @@
 - Tips:  
   - break;
     - Exits loop immediately
-  - continue;
-    -skips the rest of the current iteration and goes to the next. Great for input validation or early termination when debugging
+  - continue;  
+    - skips the rest of the current iteration and goes to the next. Great for input validation or early termination when debugging
 
 - Nested Loops:
   - Inner loops always finish before outer loops
