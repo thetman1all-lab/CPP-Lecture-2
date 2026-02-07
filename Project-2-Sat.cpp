@@ -32,5 +32,12 @@ int main() {
         }
     }
 
+    // While loop to count down the total sum
+    std::cout << "Counting Down:" << std::endl;
+    while (total >= 0) {
+        std::cout << total << std::endl;
+        total = total - 1;
+    }
+
     return 0;
 }
