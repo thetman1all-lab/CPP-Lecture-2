@@ -25,8 +25,11 @@ int main() {
         std::cout << "Enter a number:" << std::endl;
         std::cin >> number_inputs[i];
 
-        // Add inputs together
+        // Add inputs together and print output at end
         total = total + number_inputs[i];
+        if (i==4) {
+            std::cout << "Total sum = " << total << std::endl;
+        }
     }
 
     return 0;
