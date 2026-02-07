@@ -1,6 +1,4 @@
 #include <iostream>
-#include <iomanip>
-#include <string>
 
 // - Uses a for loop to prompt N times for integers, sum them (store in int total = 0; add each input)
 
