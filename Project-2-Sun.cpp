@@ -30,7 +30,7 @@ int main() {
     // Declare variables
     int choice;
     int guess = 1;
-    bool playing;
+    bool playing = false;
     
 
     // Obtain a random seed from hardware to initialize the generator
@@ -56,8 +56,8 @@ int main() {
 
         // Play Game
         if (choice == 1) {
-            
-            while (tries != 11) {
+            playing = true;
+            while (playing) {
                 
                 std::cout << "Guese a number between 1 and 100: ";
                 std::cin >> guess;
@@ -94,6 +94,9 @@ int main() {
                 // Increase tries counter
                 tries ++;
             }
+
+            // Game loop ended, therefore playing is false
+            playing = false;
            
         // Quit Game
         } else if (choice != 2) {
