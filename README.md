@@ -24,4 +24,23 @@
     - skips the rest of the current iteration and goes to the next. Great for input validation or early termination when debugging
 
 - Nested Loops:
-  - Inner loops always finish before outer loops
+  - Inner loops always finish before outer loops  
+
+# SUNDAY PROJECT CODE EVALUATION
+- Input Validation and Error Handling (High Priority - Safety):  
+  - Reason: Cin can fail, leading to UB or infinite loops—critical in autonomy where bad sensor data must be handled gracefully (e.g., SpaceX flight computers reject invalid telemetry).  
+  - Fix: After each cin, check if (!std::cin) { std::cin.clear(); std::cin.ignore(); /* re-prompt */ }.  
+  - Example Refactor (for guess prompt):  
+```
+while (playing) {
+    std::cout << "Guess a number between 1 and 100: ";
+    if (!(std::cin >> guess)) {
+        std::cin.clear(); // Clear error flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore bad input
+        std::cout << "Invalid input! Please enter an integer.\n";
+        continue; // Skip without incrementing tries
+    }
+    // Rest of logic...
+}
+```  
+(Add #include <limits> for numeric_limits.)
