@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstdlib>
+#include <random>
 
 // Description:
 
@@ -26,12 +26,20 @@
 
 
 int main() {
+
+    // Declare variables
     int choice;
+
+    // Initialize random number generator and make a random number
+    srand(time(NULL));
+    int secret_number = std::rand();
+
     do {
         std::cout << "1. Play Game\n2. Quit\nChoise: ";
         std::cin >> choice;
         if (choice == 1) {
             // Play Game
+            
 
         } else if (choice != 2) {
             // Invalid choice
