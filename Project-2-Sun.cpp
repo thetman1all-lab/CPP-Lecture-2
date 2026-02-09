@@ -28,32 +28,37 @@ int main() {
         std::cout << secret_number << std::endl;
 
         // Choices prompt
-        std::cout << "Your choices are:\n1. Play Game\n2. Quit\nChoise: ";
-        std::cin >> choice;
+        std::cout << "Your choices are:\n1. Play Game\n2. Quit\nChoice: ";
+        // std::cin >> choice;
+
+        // Error handling shoice input
+        if (!(std::cin >> choice)) {
+            std::cin.clear(); // Clear error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore bad input
+            std::cout << "Invalid input! Please enter an integer.\n";
+            continue; // Skip without incrementing tries
+        }
 
         // Play Game
         if (choice == 1) {
             playing = true;
             while (playing) {
                 
-                std::cout << "Guess a number between 1 and 100: ";
-                std::cin >> guess;
-
-                // A guess has been made, therefore tries increments by one
-                tries ++;
-
-                // Logic to determine guess
+                // Prompt the user to guess a number
                 std::cout << "Guess a number between 1 and 100: ";
 
-                // Bad input statement
+                // Error handling guess input
                 if (!(std::cin >> guess)) {
                     std::cin.clear(); // Clear error flag
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore bad input
                     std::cout << "Invalid input! Please enter an integer.\n";
                     continue; // Skip without incrementing tries
+                }
+
+                // A guess has been made, therefore tries increments by one
+                tries ++;
 
                 // Correct guess statement
-                }
                 if (guess == secret_number) {
                     if (tries == 1) {
                         std::cout << "Holy shit you got it on the first try! Interesting, very interesting"
