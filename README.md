@@ -44,3 +44,6 @@ while (playing) {
 }
 ```  
 (Add #include <limits> for numeric_limits.)
+  - # NOTE:
+    - The input is withing the error handling statement
+    - No other cin statements should be found before or after this, this is the cin input statement
