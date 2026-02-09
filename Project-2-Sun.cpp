@@ -29,9 +29,9 @@ int main() {
 
     // Declare variables
     int choice;
-    int guess = 0;
+    int guess = 1;
     bool playing;
-    int tries = 0;
+    
 
     // Obtain a random seed from hardware to initialize the generator
     std::random_device rd;
@@ -42,36 +42,62 @@ int main() {
     // Define the range [min, max] (inclusive)
     std::uniform_int_distribution<> distr(1, 100);
 
-    // Generate a random number
-    int secret_number = distr(gen);
-    std::cout << secret_number << std::endl;
-
     do {
+
+        int tries = 0;
+
+        // Generate a random number
+        int secret_number = distr(gen);
+        std::cout << secret_number << std::endl;
+
+        // Choices prompt
         std::cout << "Your choices are:\n1. Play Game\n2. Quit\nChoise: ";
         std::cin >> choice;
 
+        // Play Game
         if (choice == 1) {
-            playing = true;
-            // Play Game
-            while (playing) {
-                tries ++;
+            
+            while (tries != 11) {
+                
                 std::cout << "Guese a number between 1 and 100: ";
                 std::cin >> guess;
 
-                // Logic after guess
+                // Logic to determine guess
                 if (guess == secret_number) {
-                    std::cout << "";
+                    if (tries == 1) {
+                        std::cout << "Holy shit you got it on the first try! Interesting, very interesting"
+                                  << std::endl;
+                        break;
+                    }
+                    std::cout << "You guessed the right number! But your EXP and LV did not increase. You will need to try something else to increase those.\nTotal guesses: " << tries << std::endl;
+                    break;
 
                 } else if (guess > secret_number) {
+                    std::cout << "Your guess is too high." << std::endl;
+
+                     // Prints if player took too many tries
+                    if (tries == 11) {
+                            std::cout << "It appears you have reached and end. Whether you play again or not depends on your DETERMINATION" << std::endl;
+                            break;
+                        }
 
                 } else if (guess < secret_number) {
-
-                } else if (tries == 10) {
-                    std::cout << "It appears you have reached and end. Whether you play again or not depends on your DETERMINATION" << std::endl;
+                    std::cout << "Your guess is too low." << std::endl;
+                    
+                     // Prints if player took too many tries
+                    if (tries == 11) {
+                            std::cout << "It appears you have reached and end. Whether you play again or not depends on your DETERMINATION" << std::endl;
+                            break;
+                        }
                 }
 
+                // Increase tries counter
+                tries ++;
             }
 
+           
+
+        // Quit Game
         } else if (choice != 2) {
             // Invalid choice
             std::cout << "Not a valid choice!\n";
