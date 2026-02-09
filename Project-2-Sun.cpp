@@ -38,7 +38,17 @@ int main() {
                 std::cin >> guess;
 
                 // Logic to determine guess
-                if (guess == secret_number) {
+                std::cout << "Guess a number between 1 and 100: ";
+
+                // Bad input statement
+                if (!(std::cin >> guess)) {
+                    std::cin.clear(); // Clear error flag
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore bad input
+                    std::cout << "Invalid input! Please enter an integer.\n";
+                    continue; // Skip without incrementing tries
+
+                // Correct guess statement
+                } else if (guess == secret_number) {
                     if (tries == 1) {
                         std::cout << "Holy shit you got it on the first try! Interesting, very interesting"
                                   << std::endl;
@@ -47,6 +57,7 @@ int main() {
                     std::cout << "You guessed the right number! But your EXP and LV did not increase. You will need to try something else to increase those.\nTotal guesses: " << tries << std::endl;
                     break;
 
+                // Too large guessmstatement
                 } else if (guess > secret_number) {
                     std::cout << "Your guess is too high." << std::endl;
 
@@ -56,6 +67,7 @@ int main() {
                             break;
                         }
 
+                // Too small guess statement
                 } else if (guess < secret_number) {
                     std::cout << "Your guess is too low." << std::endl;
 
@@ -65,9 +77,6 @@ int main() {
                             break;
                         }
                 }
-
-                // Increase tries counter
-                tries ++;
             }
 
             // Game loop ended, therefore playing is false
