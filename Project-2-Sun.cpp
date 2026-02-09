@@ -19,7 +19,8 @@ int main() {
 
     do {
 
-        int tries = 1;
+        // tries inrements by 1 after each incorrect guess
+        int tries = 0;
 
         // Generate a random number
         int secret_number = distr(gen);
@@ -34,7 +35,7 @@ int main() {
             playing = true;
             while (playing) {
                 
-                std::cout << "Guese a number between 1 and 100: ";
+                std::cout << "Guess a number between 1 and 100: ";
                 std::cin >> guess;
 
                 // Logic to determine guess
@@ -49,6 +50,7 @@ int main() {
 
                 // Correct guess statement
                 } else if (guess == secret_number) {
+                    tries ++;
                     if (tries == 1) {
                         std::cout << "Holy shit you got it on the first try! Interesting, very interesting"
                                   << std::endl;
