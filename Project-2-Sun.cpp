@@ -83,7 +83,7 @@ int main() {
 
                 } else if (guess < secret_number) {
                     std::cout << "Your guess is too low." << std::endl;
-                    
+
                      // Prints if player took too many tries
                     if (tries == 11) {
                             std::cout << "It appears you have reached and end. Whether you play again or not depends on your DETERMINATION" << std::endl;
@@ -94,9 +94,7 @@ int main() {
                 // Increase tries counter
                 tries ++;
             }
-
            
-
         // Quit Game
         } else if (choice != 2) {
             // Invalid choice
