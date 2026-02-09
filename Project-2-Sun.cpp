@@ -39,6 +39,9 @@ int main() {
                 std::cout << "Guess a number between 1 and 100: ";
                 std::cin >> guess;
 
+                // A guess has been made, therefore tries increments by one
+                tries ++;
+
                 // Logic to determine guess
                 std::cout << "Guess a number between 1 and 100: ";
 
@@ -50,8 +53,8 @@ int main() {
                     continue; // Skip without incrementing tries
 
                 // Correct guess statement
-                } else if (guess == secret_number) {
-                    tries ++;
+                }
+                if (guess == secret_number) {
                     if (tries == 1) {
                         std::cout << "Holy shit you got it on the first try! Interesting, very interesting"
                                   << std::endl;
@@ -64,18 +67,12 @@ int main() {
                 } else if (guess > secret_number) {
                     std::cout << "Your guess is too high." << std::endl;
 
-                    // Increase tries counter
-                    tries ++;
-
                 // Too small guess statement
                 } else if (guess < secret_number) {
                     std::cout << "Your guess is too low." << std::endl;
-
-                    // Increase tries counter
-                    tries ++;
                 }
 
-                 // Prints if player took too many tries
+                // Prints if player took too many tries
                 if (tries == 10) {
                         std::cout << "It appears you have reached and end. Whether you play again or not depends on your DETERMINATION" << std::endl;
                         break;
