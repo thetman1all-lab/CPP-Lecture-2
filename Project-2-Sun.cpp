@@ -25,10 +25,9 @@ int main() {
 
         // Generate a random number
         int secret_number = distr(gen);
-        std::cout << secret_number << std::endl;
 
         // Choices prompt
-        std::cout << "Your choices are:\n1. Play Game\n2. Quit\nChoice: ";
+        std::cout << "\nYour choices are:\n1. Play Game\n2. Quit\nChoice: ";
         // std::cin >> choice;
 
         // Error handling shoice input
@@ -61,11 +60,10 @@ int main() {
                 // Correct guess statement
                 if (guess == secret_number) {
                     if (tries == 1) {
-                        std::cout << "Holy shit you got it on the first try! Interesting, very interesting"
-                                  << std::endl;
+                        std::cout << "\nHoly shit you got it on the first try! Interesting, very interesting. But your EXP and LV did not increase. You will need to try something else to increase those.\nTotal guesses: " << tries << std::endl;
                         break;
                     }
-                    std::cout << "You guessed the right number! But your EXP and LV did not increase. You will need to try something else to increase those.\nTotal guesses: " << tries << std::endl;
+                    std::cout << "\nYou guessed the right number! But your EXP and LV did not increase. You will need to try something else to increase those.\nTotal guesses: " << tries << std::endl;
                     break;
 
                 // Too large guessmstatement
@@ -79,7 +77,7 @@ int main() {
 
                 // Prints if player took too many tries
                 if (tries == 10) {
-                        std::cout << "It appears you have reached and end. Whether you play again or not depends on your DETERMINATION" << std::endl;
+                        std::cout << "\nIt appears you have reached and end. Whether you play again or not depends on your DETERMINATION" << std::endl;
                         break;
                     }
             }
