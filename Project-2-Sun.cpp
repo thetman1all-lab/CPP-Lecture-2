@@ -5,7 +5,7 @@ int main() {
 
     // Declare variables
     int choice;
-    int guess = 1;
+    int guess;
     bool playing = false;
 
     // Obtain a random seed from hardware to initialize the generator
@@ -61,22 +61,22 @@ int main() {
                 } else if (guess > secret_number) {
                     std::cout << "Your guess is too high." << std::endl;
 
-                     // Prints if player took too many tries
-                    if (tries == 10) {
-                            std::cout << "It appears you have reached and end. Whether you play again or not depends on your DETERMINATION" << std::endl;
-                            break;
-                        }
+                    // Increase tries counter
+                    tries ++;
 
                 // Too small guess statement
                 } else if (guess < secret_number) {
                     std::cout << "Your guess is too low." << std::endl;
 
-                     // Prints if player took too many tries
-                    if (tries == 10) {
-                            std::cout << "It appears you have reached and end. Whether you play again or not depends on your DETERMINATION" << std::endl;
-                            break;
-                        }
+                    // Increase tries counter
+                    tries ++;
                 }
+
+                 // Prints if player took too many tries
+                if (tries == 10) {
+                        std::cout << "It appears you have reached and end. Whether you play again or not depends on your DETERMINATION" << std::endl;
+                        break;
+                    }
             }
 
             // Game loop ended, therefore playing is false
