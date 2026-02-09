@@ -29,17 +29,48 @@ int main() {
 
     // Declare variables
     int choice;
+    int guess = 0;
+    bool playing;
+    int tries = 0;
 
-    // Initialize random number generator and make a random number
-    srand(time(NULL));
-    int secret_number = std::rand();
+    // Obtain a random seed from hardware to initialize the generator
+    std::random_device rd;
+    
+    // Initialize the Mersenne Twister engine with the seed
+    std::mt19937 gen(rd());
+
+    // Define the range [min, max] (inclusive)
+    std::uniform_int_distribution<> distr(1, 100);
+
+    // Generate a random number
+    int secret_number = distr(gen);
+    std::cout << secret_number << std::endl;
 
     do {
-        std::cout << "1. Play Game\n2. Quit\nChoise: ";
+        std::cout << "Your choices are:\n1. Play Game\n2. Quit\nChoise: ";
         std::cin >> choice;
+
         if (choice == 1) {
+            playing = true;
             // Play Game
-            
+            while (playing) {
+                tries ++;
+                std::cout << "Guese a number between 1 and 100: ";
+                std::cin >> guess;
+
+                // Logic after guess
+                if (guess == secret_number) {
+                    std::cout << "";
+
+                } else if (guess > secret_number) {
+
+                } else if (guess < secret_number) {
+
+                } else if (tries == 10) {
+                    std::cout << "It appears you have reached and end. Whether you play again or not depends on your DETERMINATION" << std::endl;
+                }
+
+            }
 
         } else if (choice != 2) {
             // Invalid choice
