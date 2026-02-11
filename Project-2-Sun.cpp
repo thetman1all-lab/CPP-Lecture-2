@@ -20,7 +20,7 @@ int main() {
 
     do {
 
-        // tries inrements by 1 after each incorrect guess
+        // tries increments by 1 after each incorrect guess
         int tries = 0;
         const int MAX_TRIES = 10;
 
@@ -83,7 +83,7 @@ int main() {
 
                 // Prints if player took too many tries
                 if (tries == MAX_TRIES) {
-                        std::cout << "\nIt appears you have reached and end. Whether you play again or not depends on your DETERMINATION" << std::endl;
+                        std::cout << "\nIt appears you have reached an end. Whether you play again or not depends on your DETERMINATION" << std::endl;
                         break;
                     }
             }
