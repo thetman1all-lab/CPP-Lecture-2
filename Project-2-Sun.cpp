@@ -22,6 +22,7 @@ int main() {
 
         // tries inrements by 1 after each incorrect guess
         int tries = 0;
+        const int MAX_TRIES = 10;
 
         // Generate a random number
         int secret_number = distr(gen);
@@ -54,6 +55,11 @@ int main() {
                     continue; // Skip without incrementing tries
                 }
 
+                if (guess < 1 || guess > 100) {
+                    std::cout << "Your guess was outside the bounds of 1 to 100.\n";
+                    continue;
+                }
+
                 // A guess has been made, therefore tries increments by one
                 tries ++;
 
@@ -76,7 +82,7 @@ int main() {
                 }
 
                 // Prints if player took too many tries
-                if (tries == 10) {
+                if (tries == MAX_TRIES) {
                         std::cout << "\nIt appears you have reached and end. Whether you play again or not depends on your DETERMINATION" << std::endl;
                         break;
                     }
