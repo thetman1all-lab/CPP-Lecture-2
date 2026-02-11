@@ -45,7 +45,7 @@ int main() {
             while (playing) {
                 
                 // Prompt the user to guess a number
-                std::cout << "Guess a number between 1 and 100: ";
+                std::cout << "\nGuess a number between 1 and 100: ";
 
                 // Error handling guess input
                 if (!(std::cin >> guess)) {
@@ -56,7 +56,7 @@ int main() {
                 }
 
                 if (guess < 1 || guess > 100) {
-                    std::cout << "Your guess was outside the bounds of 1 to 100.\n";
+                    std::cout << "You're not supposed to be here!\nYour guess was outside the bounds of 1 to 100.\n";
                     continue;
                 }
 
